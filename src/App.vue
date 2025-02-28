@@ -302,7 +302,6 @@ export default {
 
 					// Reset form
 					this.amount = '';
-					this.recipient = '';
 
 					// Refresh balance
 					await this.fetchBalance();
