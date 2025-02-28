@@ -57,7 +57,7 @@
 					<span class="button-icon">{{ account ? '✓' : '↗' }}</span>
 					<span>{{ account ? 'Disconnect' : 'Connect Wallet' }}</span>
 				</button>
-				<button class="wallet-connect-button" @click="">
+				<!-- <button class="wallet-connect-button" @click="">
 					<svg
 						width="20"
 						height="20"
@@ -72,7 +72,7 @@
 						/>
 					</svg>
 					<span>WalletConnect</span>
-				</button>
+				</button> -->
 			</div>
 		</div>
 
@@ -264,10 +264,10 @@ export default {
 		return {
 			dropdownOpen: false,
 			tokens: {
-				VOW: '0xbfaffd8001493dfeb51c26748d2aff53c2984190',
-				v$: '0x6e0e39d23563382e76107a2fa6bca119dec30134',
-				vKr: '0xe18e92cc7bd5694d9369bfd8288cb24c1abc4439',
-				TOKEN20: '0xea5da4fd16cc61ffc4235874d6ff05216e3e038e',
+				// VOW: '0xbfaffd8001493dfeb51c26748d2aff53c2984190',
+				// v$: '0x6e0e39d23563382e76107a2fa6bca119dec30134',
+				// vKr: '0xe18e92cc7bd5694d9369bfd8288cb24c1abc4439',
+				// TOKEN20: '0xea5da4fd16cc61ffc4235874d6ff05216e3e038e',
 				ETH: '0x',
 			},
 			selectedToken: '',
