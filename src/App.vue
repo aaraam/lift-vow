@@ -113,7 +113,8 @@ export default {
 							{
 								chainId: '0xAA36A7',
 								rpcUrls: [
-									'https://virtual.sepolia.rpc.tenderly.co/4bed0f52-ee6f-4453-a34f-9def9998833a',
+									'https://rpc.sepolia.org',
+									'https://ethereum-sepolia.blockpi.network/v1/rpc/public',
 								],
 							},
 						], // Sepolia Chain ID in Hex (11155111)
@@ -202,7 +203,7 @@ export default {
 				let tx;
 
 				console.log('Lifting', this.amount, this.selectedToken);
-				
+
 				if (this.selectedToken === 'ETH') {
 					// For ETH, convert to Wei
 					parsedAmount = ethers.parseEther(this.amount.toString());
@@ -217,16 +218,23 @@ export default {
 					}
 
 					// Call liftETH function with value parameter
-					tx = await contract.liftETH('0xa2d3849213bfc753986b21637a2d0cc39a0f895d47dc50cea1065fc25c0c2809', {
-						value: parsedAmount,
-					});
+					tx = await contract.liftETH(
+						'0xa2d3849213bfc753986b21637a2d0cc39a0f895d47dc50cea1065fc25c0c2809',
+						{
+							value: parsedAmount,
+							gasPrice: ethers.parseUnits('200', 'gwei'),
+							gasLimit: 300000,
+						}
+					);
 				} else {
-					
 					// For ERC20 tokens
-					parsedAmount = ethers.parseUnits(this.amount.toString(), 18); // Assuming 18 decimals for all tokens
+					parsedAmount = ethers.parseUnits(
+						this.amount.toString(),
+						18
+					); // Assuming 18 decimals for all tokens
 
 					console.log('Lifting', parsedAmount, 'tokens');
-					
+
 					// Show confirmation dialog
 					if (
 						!confirm(
